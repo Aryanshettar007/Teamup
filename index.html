@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechMatch - Find Your Hackathon Team</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div id="login-page" class="page active">
         <div class="wrapper">
             <form id="login-form">
-                <h1 class="page-title">Login to TechMatch</h1>
+                <h1 class="page-title">Login to TeamUp</h1>
                 <div class="input-box">
                     <label for="username">Username *</label>
                     <input type="text" id="username" placeholder="Enter your username" required>
@@ -34,3 +34,216 @@
             </form>
         </div>
     </div>
+
+    <!-- Skills Input Page -->
+    <div id="skills-page" class="page">
+        <div class="wrapper1">
+            <h2 class="page-title">Build Your Developer Profile</h2>
+            <form id="skills-form" novalidate>
+                <!-- Progress Indicator -->
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0%;"></div>
+                </div>
+
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h3>Personal Details</h3>
+                    <div class="input-box">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" placeholder="e.g., Rahul" required aria-describedby="name-help">
+                        <small id="name-help" class="help-text">Enter your full name as it appears on your ID.</small>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="college">College/University *</label>
+                        <select id="college" required aria-describedby="college-help">
+                            <option value="">Select College</option>
+                            <option value="JSSATEB">JSSATEB</option>
+                            <option value="RVCE">RVCE</option>
+                            <option value="BMSCE">BMSCE</option>
+                            <option value="RNSIT">RNSIT</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <small id="college-help" class="help-text">Choose your current or alma mater institution.</small>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="gender">Gender *</label>
+                        <select id="gender" required aria-describedby="gender-help">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <small id="gender-help" class="help-text">Select your gender for profiling purposes.</small>
+                    </div>
+
+                    <div class="input-box dob-group">
+                        <label for="dob">Date of Birth *</label>
+                        <div class="dob-selects">
+                            <select id="dob-day" required aria-describedby="dob-help">
+                                <option value="">Day</option>
+                                <script>
+                                    for (let i = 1; i <= 31; i++) {
+                                        document.write(`<option value="${i}">${i}</option>`);
+                                    }
+                                </script>
+                            </select>
+                            <select id="dob-month" required>
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="dob-year" required>
+                                <option value="">Year</option>
+                                <script>
+                                    for (let i = 1925; i <= 2020; i++) {
+                                        document.write(`<option value="${i}">${i}</option>`);
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                        <small id="dob-help" class="help-text">Select your date of birth for age verification.</small>
+                    </div>
+                </div>
+
+                <!-- Professional Information Section -->
+                <div class="form-section">
+                    <h3>Professional Details</h3>
+                    <div class="input-box">
+                        <label for="skills">Skills *</label>
+                        <input type="text" id="skills" placeholder="e.g., Python, JavaScript, UI/UX" required aria-describedby="skills-help">
+                        <small id="skills-help" class="help-text">List your technical skills, separated by commas.</small>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="experience">Experience *</label>
+                        <input type="text" id="experience" placeholder="e.g., 2+ years" required aria-describedby="experience-help">
+                        <small id="experience-help" class="help-text">Enter your years of experience or relevant projects.</small>
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="looking-for">Looking For *</label>
+                        <input type="text" id="looking-for" placeholder="e.g., AI Hackathon" required aria-describedby="looking-for-help">
+                        <small id="looking-for-help" class="help-text">Specify the type of hackathon or project you’re interested in.</small>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="profile-pic">Profile Picture *</label>
+                        <input type="file" id="profile-pic" accept="image/*" required aria-describedby="profile-pic-help">
+                        <small id="profile-pic-help" class="help-text">Upload a professional headshot (JPG, PNG, max 5MB).</small>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Save & Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Matching/Swiping Page -->
+    <div id="matching-page" class="page">
+        <div class="wrapper">
+            <h2 class="page-title">Find Your Team</h2>
+            <div class="profile-container">
+                <!-- My Profile -->
+                <div id="my-profile" class="card">
+                    <h3>My Profile</h3>
+                    <img src="https://via.placeholder.com/100" alt="My Profile Pic" class="profile-pic">
+                    <p id="my-name"></p>
+                    <p id="my-skills"></p>
+                    <p id="my-experience"></p>
+                    <p id="my-looking-for"></p>
+                    <p id="my-additional-info"></p>
+                </div>
+                <!-- Other Profiles -->
+                <div class="card-stack">
+                    <div class="card" data-id="1">
+                        <img src="image1.webp" alt="Profile Pic" class="profile-pic">
+                        <h2>Vikas</h2>
+                        <p><strong>Skills:</strong> Python, Machine Learning</p>
+                        <p><strong>Experience:</strong> 3+ years</p>
+                        <p><strong>Looking for:</strong> AI Hackathon</p>
+                        <div class="buttons">
+                            <button class="swipe-left">✗ Pass</button>
+                            <button class="swipe-right">✔ Team Up</button>
+                        </div>
+                    </div>
+                    <div class="card" data-id="2">
+                        <img src="image2.avif" alt="Profile Pic" class="profile-pic">
+                        <h2>Sami</h2>
+                        <p><strong>Skills:</strong> JavaScript, React</p>
+                        <p><strong>Experience:</strong> 2+ years</p>
+                        <p><strong>Looking for:</strong> Web Dev Hackathon</p>
+                        <div class="buttons">
+                            <button class="swipe-left">✗ Pass</button>
+                            <button class="swipe-right">✔ Team Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Hub Page (Post-Team-Up) -->
+    <div id="team-hub-page" class="page">
+        <div class="wrapper">
+            <h2 class="page-title">Team Hub</h2>
+            <div class="team-hub-container">
+                <!-- Team Profile -->
+                <div class="card team-profile">
+                    <h3>Our Team</h3>
+                    <p id="team-name"></p>
+                    <p id="team-skills"></p>
+                    <p id="team-experience"></p>
+                    <p id="team-looking-for"></p>
+                    <button class="btn edit-team-profile">Edit Team Profile</button>
+                </div>
+
+                <!-- Chat System -->
+                <div class="card chat-container">
+                    <h3>Team Chat</h3>
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Messages will be dynamically added here -->
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Type a message..." required>
+                        <button class="btn send-message">Send</button>
+                    </div>
+                </div>
+
+                <!-- Project Management Dashboard -->
+                <div class="card project-management">
+                    <h3>Project Tasks</h3>
+                    <div class="task-list" id="task-list">
+                        <!-- Tasks will be dynamically added here -->
+                    </div>
+                    <div class="task-input">
+                        <input type="text" id="new-task" placeholder="Add a new task..." required>
+                        <button class="btn add-task">Add Task</button>
+                    </div>
+                </div>
+
+                <!-- Feedback Mechanism -->
+                <div class="card feedback">
+                    <h3>Provide Feedback</h3>
+                    <textarea id="team-feedback" placeholder="Share your thoughts about your team..." rows="4"></textarea>
+                    <button class="btn submit-feedback">Submit Feedback</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
