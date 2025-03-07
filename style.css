@@ -5,6 +5,16 @@
     font-family: "Poppins", sans-serif;
 }
 
+.fixed-image{
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    width: 180px;
+    height: auto;
+    z-index: 1;
+    border-radius: 10px;
+}
+
 body {
     display: flex;
     justify-content: center;
